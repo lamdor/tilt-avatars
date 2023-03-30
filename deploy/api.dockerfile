@@ -1,4 +1,5 @@
-FROM python:3.10-slim-bullseye
+# syntax=docker/dockerfile:1
+FROM base
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK="1"
 
@@ -11,5 +12,9 @@ COPY api/ ./api/
 
 ENV FLASK_APP=./api/app.py
 ENV FLASK_ENV=development
+
+RUN <<EOF
+echo hello
+EOF
 
 CMD [ "flask", "run", "--host", "0.0.0.0" ]

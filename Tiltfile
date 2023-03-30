@@ -3,6 +3,12 @@
 # https://docs.tilt.dev/api.html#api.version_settings
 version_settings(constraint='>=0.22.2')
 
+docker_build(
+        'base',
+        context='.',
+        dockerfile='./deploy/base.dockerfile',
+)
+
 # tilt-avatar-api is the backend (Python/Flask app)
 # live_update syncs changed source code files to the correct place for the Flask dev server
 # and runs pip (python package manager) to update dependencies when changed
